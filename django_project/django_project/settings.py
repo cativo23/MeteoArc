@@ -14,17 +14,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import netifaces
 
-# Find out what the IP addresses are at run time
-# This is necessary because otherwise Gunicorn will reject the connections
-def ip_addresses():
-    ip_list = []
-    for interface in netifaces.interfaces():
-        addrs = netifaces.ifaddresses(interface)
-        for x in (netifaces.AF_INET, netifaces.AF_INET6):
-            if x in addrs:
-                ip_list.append(addrs[x][0]['addr'])
-    return ip_list
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -38,9 +27,8 @@ SECRET_KEY = '9f75fb4cf0f7903f8c503840c752f24c'
 DEBUG = True
 
 # Discover our IP address
-ALLOWED_HOSTS = ip_addresses()
+ALLOWED_HOSTS = ['meteoarc.tk']
 
-ALLOWED_HOSTS.extend(['meteoarc.tk'])
 
 # Application definition
 
@@ -137,4 +125,4 @@ def ip_addresses():
     return ip_list
 
 # Discover our IP address
-ALLOWED_HOSTS = ip_addresses()
+ALLOWED_HOSTS += ip_addresses()
