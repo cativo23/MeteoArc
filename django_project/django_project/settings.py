@@ -38,7 +38,9 @@ SECRET_KEY = '9f75fb4cf0f7903f8c503840c752f24c'
 DEBUG = True
 
 # Discover our IP address
-ALLOWED_HOSTS = [ip_addresses(), 'meteoarc.tk']
+ALLOWED_HOSTS = ip_addresses()
+
+ALLOWED_HOSTS.extend(['meteoarc.tk'])
 
 # Application definition
 
