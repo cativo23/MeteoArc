@@ -2,6 +2,10 @@
 # Created by https://www.gitignore.io/api/pycharm,python,django
 # Edit at https://www.gitignore.io/?templates=pycharm,python,django
 
+.profile
+.bashrc
+.bash_logout
+
 ### Django ###
 *.log
 *.pot
