@@ -27,7 +27,7 @@ SECRET_KEY = '9f75fb4cf0f7903f8c503840c752f24c'
 DEBUG = True
 
 # Discover our IP address
-ALLOWED_HOSTS = ['meteoarc.tk']
+ALLOWED_HOSTS = ['meteoarc.tk', 'localhost']
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
     'meteoarc'
 )
 
@@ -53,7 +52,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 )
 
 ROOT_URLCONF = 'django_project.urls'
