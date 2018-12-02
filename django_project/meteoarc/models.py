@@ -27,7 +27,7 @@ class DatoMeterologico(models.Model):
     presionAbsMB = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     presionAbsInHg = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     presionNivelMarMB = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
-    presionNivelMarInHg = models.DecimalField(decimal_places=4, max_digits=1,default=0.0, null=False)
+    presionNivelMarInHg = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     esDia = models.BooleanField(default=False, null=False)
     velocidadViento = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     direccionViento = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
