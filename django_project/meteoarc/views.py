@@ -44,7 +44,7 @@ class ListDatoView(generics.ListAPIView):
     """
     Provides a get method handler.
     """
-    queryset = DatoMeterologico.objects.all()
+    queryset = DatoMeterologico.objects.latest('fecha')
     serializer_class = DatoSerializer
 
     def list(self, request, *args, **kwargs):
