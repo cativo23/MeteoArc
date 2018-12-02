@@ -8,7 +8,6 @@ class SongsSerializer(serializers.ModelSerializer):
         fields = ("title", "artist")
 
 class DatoSerializer(serializers.ModelSerializer):
-    results_field = "dato"
 
     class Meta:
         model = DatoMeterologico

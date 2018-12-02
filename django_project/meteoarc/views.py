@@ -47,6 +47,11 @@ class ListDatoView(generics.ListAPIView):
     queryset = DatoMeterologico.objects.all()
     serializer_class = DatoSerializer
 
+    def list(self, request, *args, **kwargs):
+        self.object_list = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(self.object_list, many=True)
+        return Response({'results': serializer.data})
+
 
 class DatoList(generics.ListCreateAPIView):
     queryset = DatoMeterologico.objects.all()
