@@ -47,7 +47,7 @@ class ListDatoView(generics.ListAPIView):
     serializer_class = DatoSerializer
 
     def get_queryset(self):
-        return DatoMeterologico.objects.order_by('-fecha').first()
+        return DatoMeterologico.objects.order_by('-fecha').first()[0]
 
     def list(self, request, *args, **kwargs):
         self.object_list = self.filter_queryset(self.get_queryset())
