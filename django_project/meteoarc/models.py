@@ -30,7 +30,7 @@ class DatoMeterologico(models.Model):
     presionNivelMarInHg = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     esDia = models.BooleanField(default=False, null=False)
     velocidadViento = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
-    direccionViento = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
+    direccionViento = models.CharField(max_length= 10, default="Nada", null=False)
     cantidadLLuvia = models.DecimalField(decimal_places=4, max_digits=10,default=0.0, null=False)
     fecha = models.DateTimeField(auto_now_add=True, blank=False, null=False)
 
