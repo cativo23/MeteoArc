@@ -24,4 +24,5 @@ class DatoSerializer(serializers.ModelSerializer):
         "esDia",
         "velocidadViento",
         "direccionViento",
-        "cantidadLLuvia")
+        "cantidadLLuvia",
+        "fecha")
