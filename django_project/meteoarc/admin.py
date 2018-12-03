@@ -8,4 +8,4 @@ from django.contrib import admin
 from .models import Songs, DatoDatoMeterologico
 
 admin.site.register(Songs)
-admin.site.register(DatoDatoMeterologico)
+admin.site.register(DatoMeterologico)
