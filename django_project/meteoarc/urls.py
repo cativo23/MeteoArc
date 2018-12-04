@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from .views import ListSongsView, SongDetail, SongsList, SongPost, ListDatoView, DatoDetail, DatoList, DatoPost
+from .views import ListSongsView, SongDetail, SongsList, SongPost, ListDatoView, DatoDetail, DatoList, DatoPost, Index
 
 
 urlpatterns = [
-    url(r'', ListSongsView.as_view(), name="songs-all"),
+    url(r'', Index.as_view(), name="songs-all"),
     url(r'songs/', ListSongsView.as_view(), name="songs-all"),
     url(r'songs2/', SongsList.as_view()),
     url(r'songs3/(?P<pk>\d+)/', SongDetail.as_view()),
