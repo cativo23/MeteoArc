@@ -79,9 +79,9 @@ class DatoPost(generics.CreateAPIView):
         else:
             return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
-class Index(ListView):
-    model = DatoMeterologico
-    template_name = 'arcindex.html'
+#class Index(ListView):
+#    model = DatoMeterologico
+#    template_name = 'arcindex.html'
 
-    def get_queryset(self):
-        return [DatoMeterologico.objects.order_by('-fecha').first()]
+#    def get_queryset(self):
+#        return [DatoMeterologico.objects.order_by('-fecha').first()]
