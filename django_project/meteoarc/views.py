@@ -88,5 +88,5 @@ class Index(ListView):
         context['now'] = timezone.now()
         return context
 
-    def get_queryset():
+    def get_queryset(self):
         return [DatoMeterologico.objects.order_by('-fecha').first()]
