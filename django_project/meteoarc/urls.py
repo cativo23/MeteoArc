@@ -3,6 +3,7 @@ from .views import ListSongsView, SongDetail, SongsList, SongPost, ListDatoView,
 
 
 urlpatterns = [
+    url(r'', ListSongsView.as_view(), name="songs-all"),
     url(r'songs/', ListSongsView.as_view(), name="songs-all"),
     url(r'songs2/', SongsList.as_view()),
     url(r'songs3/(?P<pk>\d+)/', SongDetail.as_view()),
