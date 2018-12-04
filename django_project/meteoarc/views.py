@@ -80,6 +80,7 @@ class DatoPost(generics.CreateAPIView):
             return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 class Index(ListView):
+    model = DatoMeterologico
     template_name = 'index.html'
 
     get_context_data(self,**kwargs):
