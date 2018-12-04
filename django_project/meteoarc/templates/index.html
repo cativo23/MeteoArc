@@ -32,7 +32,7 @@
 			<div class="site-header">
 				<div class="container">
 					<a href="/" class="branding">
-						<img src="images/logo.png" alt="" class="logo">
+						<img src="{% static 'images/logo.png'%}" alt="" class="logo">
 						<div class="logo-type">
 							<h1 class="site-title">MeteoArc</h1>
 							<small class="site-description">el clima donde sea</small>
@@ -43,11 +43,10 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item"><a href="news.html">News</a></li>
-							<li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
-							<li class="menu-item"><a href="photos.html">Photos</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item current-menu-item"><a href="index.html">Inicio</a></li>
+							<li class="menu-item"><a href="news.html">Datos Diarios</a></li>
+							<li class="menu-item"><a href="live-cameras.html">Datos Semanales</a></li>
+							<li class="menu-item"><a href="photos.html">Datos Anuales</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -56,7 +55,7 @@
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="images/banner.png">
+			<div class="hero" data-bg-image="{% static 'images/banner.png'%}">
 				<div class="container">
 					<form action="#" class="find-location">
 						<input type="text" placeholder="Find your location...">
@@ -75,7 +74,7 @@
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
 								<div class="location">
-									{%if ob.tempDHT11C > '25' %}
+									{%if ob.tempDHT11C > 25 %}
 										Soleado
 									{%else%}
 									No Soleado
@@ -84,12 +83,12 @@
 								<div class="degree">
 									<div class="num">{{ob.tempDHT11C}}<sup>o</sup>C</div>
 									<div class="forecast-icon">
-										<img src="images/icons/icon-1.svg" alt="" width=90>
+										<img src="{% static 'images/icons/icon-1.svg'%}" alt="" width=90>
 									</div>
 								</div>
-								<span><img src="images/icon-umberella.png" alt="">{{ob.humedadDHT11}}%</span>
-								<span><img src="images/icon-wind.png" alt="">{{ob.velocidadViento}}km/h</span>
-								<span><img src="images/icon-compass.png" alt="">{{ob.direccionViento}}</span>
+								<span><img src="{% static 'images/icon-umberella.png'%}" alt="">{{ob.humedadDHT11}}%</span>
+								<span><img src="{% static 'images/icon-wind.png'%}" alt="">{{ob.velocidadViento}}km/h</span>
+								<span><img src="{% static 'images/icon-compass.png'%}" alt="">{{ob.direccionViento}}</span>
 							</div>
 							{%endfor%}
 						</div>
@@ -231,7 +230,7 @@
 						</div>
 					</div>
 
-					<p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+					<p class="colophon">MeteoArc 2018. Todos los derechos Reservados</p>
 				</div>
 			</footer> <!-- .site-footer -->
 		</div>
