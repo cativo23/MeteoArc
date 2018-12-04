@@ -83,10 +83,5 @@ class Index(ListView):
     model = DatoMeterologico
     template_name = 'index.html'
 
-    def get_context_data(self,**kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
-
     def get_queryset(self):
         return [DatoMeterologico.objects.order_by('-fecha').first()]
