@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import ListSongsView, SongDetail, SongsList, SongPost, ListDatoView, DatoDetail, DatoList, DatoPost, Index
+from .views import ListSongsView, SongDetail, SongsList, SongPost, ListDatoView, DatoDetail, DatoList, DatoPost
 
 
 urlpatterns = [
