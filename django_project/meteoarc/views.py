@@ -7,6 +7,9 @@ from .models import Songs, DatoMeterologico
 from .serializers import SongsSerializer, DatoSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from django.views.generic.list import ListView
+from django.utils import timezone
+
 
 
 # Create your views here.
@@ -75,3 +78,14 @@ class DatoPost(generics.CreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+
+class Index(ListView):
+    template_name = 'index.html'
+
+    get_context_data():
+         context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+
+    def get_queryset():
+        return [DatoMeterologico.objects.order_by('-fecha').first()]
