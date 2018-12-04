@@ -81,7 +81,7 @@ class DatoPost(generics.CreateAPIView):
 
 class Index(ListView):
     model = DatoMeterologico
-    template_name = 'index.html'
+    template_name = 'arcindex.html'
 
     def get_queryset(self):
         return [DatoMeterologico.objects.order_by('-fecha').first()]
