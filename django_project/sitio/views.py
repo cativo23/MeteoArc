@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from meteoarc.models import DatoMeterologico
+import datetime
 
 # Create your views here.
 class Index(ListView):
@@ -22,8 +23,8 @@ class Index(ListView):
         estado = "Esta "
         estado1 = None
 
-        esD = dato.esDia
-        tempCDHT11 = dato.tempDHT11C
+        esD = dato#.esDia
+        tempCDHT11 = dato #.tempDHT11C
         if tempCDHT11 >=30:
             if esD:
                 soleado = True
@@ -42,11 +43,11 @@ class Index(ListView):
                 noche = True
             helado = True
 
-        cantLLuvia = dato.cantidadLLuvia
+        cantLLuvia = dato#.cantidadLLuvia
         if cantLLuvia>0:
             lloviendo = True
 
-        cantViento = dato.velocidadViento
+        cantViento = dato#.velocidadViento
         if cantViento>=50:
             muchoViento = True
 
@@ -75,3 +76,17 @@ class Index(ListView):
 
     def get_queryset(self):
         return [DatoMeterologico.objects.order_by('-fecha').first()]
+
+
+class Semana(ListView):
+    model = DatoMeterologico
+    template_name = 'lista.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Semana, self).get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        hoy = datetime.date.today()
+        semanaAntes = hoy - datetime.timedelta(days=7)
+        return DatoMeterologico.objects.filter(fecha__range=(semanaAntes,hoy))

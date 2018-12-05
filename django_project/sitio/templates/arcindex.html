@@ -40,9 +40,9 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.html">Inicio</a></li>
+							<li class="menu-item current-menu-item"><a href="{%url 'index'%}">Inicio</a></li>
 							<li class="menu-item"><a href="news.html">Datos Diarios</a></li>
-							<li class="menu-item"><a href="live-cameras.html">Datos Semanales</a></li>
+							<li class="menu-item"><a href="{% url 'semana'%}">Datos Semanales</a></li>
 							<li class="menu-item"><a href="photos.html">Datos Anuales</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
@@ -72,16 +72,13 @@
 												 {%endif%}
 										 {%endif%}
 								{%endif%}
-					 {%endif%}
-			 >
-
+					 {%endif%}>
 				</div>
-			</div>
 			{% for ob in object_list%}
 			<div class="forecast-table">
 				<div class="container">
 					<div class="forecast-container">
-							<div class="today forecast">
+						<div class="today forecast">
 							<div class="forecast-header">
 								<div class="day">{{ob.fecha}}</div>
 							</div> <!-- .forecast-header -->
@@ -112,8 +109,7 @@
 																	 {%endif%}
 															{%endif%}
 												 {%endif%}
-										alt="" width=90>
-									</div>
+										alt="" width=90></div>
 								</div>
 								<span><img src="{% static 'images/icon12.png'%}" alt="">{{ob.humedadDHT11}}%</span>
 								<span><img src="{% static 'images/icon-wind.png'%}" alt="">{{ob.velocidadViento}}km/h</span>
@@ -175,8 +171,8 @@
 		</div>
 
 		<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
-		<script src="{% static "js/plugins.js" %}"></script>
-		<script src="{% static "js/app.js" %}"></script>
+		<script src="{% static 'js/plugins.js' %}"></script>
+		<script src="{% static 'js/app.js' %}"></script>
 
 	</body>
 
