@@ -52,7 +52,28 @@
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="{% static 'images/banner.png'%}">
+			<div class="hero"
+			{% if estado1 == "Ventoso" %}
+							data-bg-image="{% static 'images/windbg.jpg'%}"
+					 {% else %}
+					 {% if estado1 == "Soleado" %}
+									 data-bg-image="{% static 'images/sunbg.jpg'%}"
+								{% else %}
+								{% if estado1 == "Noche" %}
+												data-bg-image="{% static 'images/nightbg.jpg'%}"
+										 {% else %}
+										 {% if estado1 == "Lluvioso" %}
+														data-bg-image="{% static 'images/rainbg.jpg'%}"
+												 {% else %}
+												 {% if estado1 == "Frío" %}
+																data-bg-image="{% static 'images/coldbg.jpg'%}"
+														 {% else %}
+														 {%endif%}
+												 {%endif%}
+										 {%endif%}
+								{%endif%}
+					 {%endif%}
+			 >
 
 				</div>
 			</div>
