@@ -32,7 +32,7 @@ class Index(ListView):
                 soleado = False
                 noche = True
 
-            helado = false
+            helado = False
         else:
             if esD:
                 soleado = True
