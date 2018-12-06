@@ -41,11 +41,11 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="{%url 'index'%}">Inicio</a></li>
-							<li class="menu-item"><a href="{%url 'hoy'%}">Datos Diarios</a></li>
-							<li class="menu-item"><a href="{%url 'semana'%}">Datos Semanales</a></li>
-							<li class="menu-item"><a href="{% url 'mes'%}">Datos Mensuales</a></li>
-							<li class="menu-item"><a href="{%url 'anio'%}">Datos Anuales</a></li>
+							<li class="menu-item"><a href="{%url 'sitio:indez'%}">Inicio</a></li>
+							<li class="menu-item"><a href="{%url 'sitio:hoy'%}">Datos Diarios</a></li>
+							<li class="menu-item"><a href="{%url 'sitio:semana'%}">Datos Semanales</a></li>
+							<li class="menu-item"><a href="{% url 'sitio:mes'%}">Datos Mensuales</a></li>
+							<li class="menu-item"><a href="{%url 'sitio:anio'%}">Datos Anuales</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -57,7 +57,7 @@
 			<main class="main-content">
 				<div class="container">
 					<div class="breadcrumb">
-						<a href="{%url 'index'%}">Inicio</a>
+						<a href="{%url 'sitio:indez'%}">Inicio</a>
 						<span>{{ titulo }}</span>
 					</div>
 				</div>

@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from . import views as SisW
 
 urlpatterns = [
+    url(r'^$', SisW.index),
     url(r'^admin/', admin.site.urls),
-    url(r'^/', include('meteoarc.urls')),
-    url(r'^sitio/', include('sitio.urls')),
+    url(r'^/', include('meteoarc.urls', namespace='meteo')),
+    url(r'^data/', include('sitio.urls', namespace="sitio")),
 ]
