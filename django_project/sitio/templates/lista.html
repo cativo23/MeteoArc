@@ -42,9 +42,10 @@
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="{%url 'index'%}">Inicio</a></li>
-							<li class="menu-item"><a href="news.html">Datos Diarios</a></li>
-							<li class="menu-item current-menu-item"><a href="{%url 'semana'%}">Datos Semanales</a></li>
-							<li class="menu-item"><a href="photos.html">Datos Anuales</a></li>
+							<li class="menu-item"><a href="{%url 'hoy'%}">Datos Diarios</a></li>
+							<li class="menu-item"><a href="{%url 'semana'%}">Datos Semanales</a></li>
+							<li class="menu-item"><a href="{% url 'mes'%}">Datos Mensuales</a></li>
+							<li class="menu-item"><a href="{%url 'anio'%}">Datos Anuales</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -65,27 +66,44 @@
 				<div class="fullwidth-block">
 					<div class="container">
 						<div class="row">
-							<div class="content col-md-8">
-								<div class="post">
-									<h2 class="entry-title">Nemo enim ipsam voluptatem quia voluptas</h2>
-									<div class="featured-image"><img src="images/featured-image-1.jpg" alt=""></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nulla rem dolores unde et cum illum odio, enim quis odit eveniet quaerat non libero, consequatur voluptatem harum ad veritatis necessitatibus.</p>
-									<a href="single.html" class="button">Read more</a>
-								</div>
-
-								<div class="post">
-									<h2 class="entry-title">Nemo enim ipsam voluptatem quia voluptas</h2>
-									<div class="featured-image"><img src="images/featured-image-2.jpg" alt=""></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nulla rem dolores unde et cum illum odio, enim quis odit eveniet quaerat non libero, consequatur voluptatem harum ad veritatis necessitatibus.</p>
-									<a href="single.html" class="button">Read more</a>
-								</div>
-
-								<div class="post">
-									<h2 class="entry-title">Nemo enim ipsam voluptatem quia voluptas</h2>
-									<div class="featured-image"><img src="images/featured-image-3.jpg" alt=""></div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nulla rem dolores unde et cum illum odio, enim quis odit eveniet quaerat non libero, consequatur voluptatem harum ad veritatis necessitatibus.</p>
-									<a href="single.html" class="button">Read more</a>
-								</div>
+							<div class="content col-md-12">
+									<h1 class="entry-title">{{titulo}} desde {{end}} a {{start}}</h1>
+										{% for ob in object_list  %}
+										<div class="post">
+										<div class="row">
+												<br>
+										<h2>
+											{{ob.fecha.time}}
+										</h2>
+										<div class="col-md-3 col-sm-6">
+											<h2 class="location">Temperaturas</h2>
+											DHT11: {{ob.tempDHT11F}} <sup>o</sup>F <br>
+											BMP180: {{ob.tempBMPC}} <sup>o</sup>C  y  {{ob.tempBMPF}} <sup>o</sup>F <br>
+											Indice de Calor: {{ob.IndCalorDHT11}}
+										</div>
+										<div class="col-md-3 col-sm-6">
+											<h2 class="location">Altitudes</h2>
+											{{ob.altitudMBMP}} metros <br>
+											{{ob.altitudFBMP}} pies
+										</div>
+										<div class="col-md-3 col-sm-6">
+											<h2 class="location">Presiones</h2>
+											<h3>Presion Absoluta:</h3>
+											{{ob.presionAbsMB}} mbar<br>
+											{{ob.presionAbsInHg}}  Hg<br>
+											<h3>Presion Relacion al Nivel del Mar:</h3><br>
+											{{ob.presionNivelMarMB}} mbar<br>
+											{{ob.presionNivelMarInHg}} Hg <br>
+										</div>
+										<div class="col-md-3 col-sm-6">
+											<h3 class="location">Cantidad De Lluvia</h3>
+											{{ob.cantidadLLuvia}} mm
+										</div>
+										<br>
+										<br>
+										</div>
+										</div>
+										{% endfor %}
 							</div>
 						</div>
 					</div>

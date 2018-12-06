@@ -35,4 +35,4 @@ class DatoMeterologico(models.Model):
     fecha = models.DateTimeField(auto_now_add=True, blank=False, null=False)
 
     def __str__(self):
-        return "Dato Meteorologico de: {}".format(self.fecha)
+        return "Dato Meteorologico de: {}".format(str(self.fecha.strftime('%d/%m/%Y %H:%M %p')))
