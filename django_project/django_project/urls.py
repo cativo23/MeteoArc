@@ -19,7 +19,7 @@ from . import views as SisW
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^/', include('meteoarc.urls', namespace='meteo')),
+    url(r'^', include('meteoarc.urls', namespace='meteo')),
     url(r'^data/', include('sitio.urls', namespace="sitio")),
     url(r'^$', SisW.index),
 ]
